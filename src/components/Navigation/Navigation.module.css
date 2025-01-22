@@ -1,0 +1,13 @@
+.link {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--main);
+}
+
+.link.active {
+  color: var(--buttons);
+}
+.link:first-child {
+  margin-right: 32px;
+}
