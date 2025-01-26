@@ -10,11 +10,11 @@ import 'modern-normalize';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <BrowserRouter>
       <HelmetProvider>
         <App />
       </HelmetProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
