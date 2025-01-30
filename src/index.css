@@ -44,24 +44,26 @@
     --rating: rgba(255, 197, 49, 1);
     --gray: rgba(138, 138, 137, 1);
     --backdrop:rgba(25, 26, 21, 0.6);
+    --border:rgba(25, 26, 21, 0.2);
   }
   html {
     font-size: calc(100vw/1440*10);
   }
   
   body {
-    max-width: 1440px;
-    min-width: 320px;
+   
     box-sizing: border-box;
     font-family: var(--font-primary);
     font-weight: var(--font-weight-regular);
+    background-color: var(--white);
    
   }
   .container {
-   
+    max-width: 1440px;
+    min-width: 320px;
 
-    /* padding-left: 64px;
-    padding-right: 64px; */
+    padding-left: clamp(calc(0.22*128px),12.8rem,128px);
+    padding-right: clamp(calc(0.22*128px),12.8rem,128px);
     margin: 0 auto;
   }
   h1,
@@ -84,6 +86,7 @@
   a {
     text-decoration: none;
     color: inherit;
+    cursor:pointer;
   }
   
   img {

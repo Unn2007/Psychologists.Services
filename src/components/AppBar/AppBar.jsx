@@ -6,8 +6,14 @@ import css from "./AppBar.module.css";
 export const AppBar = () => {
   return (
     <header className={css.header}>
-      <Navigation />
-      {true ? <UserMenu /> : <AuthNav />}
+      <div className={`${css.container} container`}>
+      <h2 className={css.logo}>
+        <span>psychologists.</span>
+        <span className={css.secondWord}>services</span>
+        </h2>
+      <Navigation  />
+      {false ? <UserMenu /> : <AuthNav />}
+      </div>
     </header>
   );
 };

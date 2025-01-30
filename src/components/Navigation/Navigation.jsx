@@ -6,10 +6,10 @@ const buildLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
 };
 // const isLoggedIn = useSelector(selectIsLoggedIn);
-const isLoggedIn = true;
+const isLoggedIn = false;
 export const Navigation = () => {
   return (
-    <nav>
+    <nav className={css.nav}>
       <NavLink className={buildLinkClass} to="/">
         Home
       </NavLink>
@@ -18,7 +18,7 @@ export const Navigation = () => {
       Psychologists
       </NavLink>
       {isLoggedIn && (
-        <NavLink className={css.link} to="/favorites">
+        <NavLink className={buildLinkClass} to="/favorites">
           Favorites
         </NavLink>
       )}
