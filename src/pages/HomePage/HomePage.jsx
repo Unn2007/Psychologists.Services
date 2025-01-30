@@ -1,4 +1,5 @@
 import DocumentTitle from '../../components/DocumentTitle';
+import { useNavigate } from "react-router-dom";
 import { Icon } from '../../components/Icon/Icon.jsx';
 import css from './HomePage.module.css';
 import mainFoto from '../../assets/images/mainFoto.jpg';
@@ -23,6 +24,11 @@ const HomePage = () => {
 
   //   })
   //   .catch((error) => console.log(error));
+  const navigate = useNavigate();
+
+  const buttonClick = () => {
+    navigate("/psychologists");
+  };
 
   return (
     <section className={css.home}>
@@ -38,7 +44,7 @@ const HomePage = () => {
           We help you to reveal your potential, overcome challenges and find a
           guide in your own life with the help of our experienced psychologists.
         </p>
-        <button type="button" className={css.button}>
+        <button type="button" className={css.button} onClick={buttonClick}>
           <span className={css.buttonText}>Get started</span>
           <Icon
             width={14}
