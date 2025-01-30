@@ -1,0 +1,22 @@
+.authNav {
+  font-size: clamp(calc(0.22*16px),1.6rem, 16px);
+  line-height: 1.25;
+  color: var(--main);
+}
+
+.link {
+  padding-top: clamp(calc(0.22*14px),1.4rem, 14px);
+  padding-bottom: clamp(calc(0.22*14px),1.4rem, 14px);
+  padding-left: clamp(calc(0.22*39px),3.9rem, 39px);
+  padding-right: clamp(calc(0.22*39px),3.9rem, 39px);
+  border-radius: clamp(calc(0.22*30px),3rem,30px);
+}
+.login {
+  margin-right: clamp(calc(0.22*8px), 0.8rem,8px);
+  border: 1px solid var(--border);
+}
+
+.register {
+  color: var(--white);
+  background-color: var(--akcent);
+}

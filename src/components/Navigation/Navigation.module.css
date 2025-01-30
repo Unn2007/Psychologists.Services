@@ -1,13 +1,29 @@
-.link {
-  display: inline-block;
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--main);
+.nav {
+  display: flex;
+  column-gap: clamp(calc(0.22*40px),4rem,40px) ;
+  margin-right: clamp(calc(0.22*345px),34.5rem,345px);
 }
 
-.link.active {
-  color: var(--buttons);
+.link {
+  display: flex;
+  flex-direction: column;
+  row-gap: clamp(calc(0.22*4px),0.4rem,4px);
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(calc(0.22*16px),1.6rem,16px) ;
+  line-height: 1.25;
+  color: var(--main);
+
 }
-.link:first-child {
-  margin-right: 32px;
+
+.link::after {
+  content:"";
+  display: block;
+  width: clamp(calc(0.22*8px),0.8rem,8px);
+  height: clamp(calc(0.22*8px),0.8rem,8px);
+  border-radius: 50%;
+ background-color: transparent;
+}
+.link.active::after {
+  background-color: var(--akcent);
 }
