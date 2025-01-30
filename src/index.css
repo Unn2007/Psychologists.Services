@@ -26,6 +26,13 @@
     font-weight: 700;
     src: url("./assets/fonts/Inter28pt-Bold.woff2") format("woff2");
   }
+  @font-face {
+    font-display: swap;
+    font-family: "Inter";
+    font-style: italic;
+    font-weight: 600;
+    src: url("./assets/fonts/Inter24pt-MediumItalic.woff2") format("woff2");
+  }
   :root {
     --font-primary: "Inter", sans-serif;
   
@@ -38,6 +45,7 @@
     --text: rgba(25, 26, 21, 0.5);
     --light-text:rgba(25, 26, 21, 0.3);
     --white:rgba(251, 251, 251, 1);
+    --whiteHalf:rgba(251, 251, 251, 0.5);
     --akcent: rgba(84, 190, 150, 1);
     --price: rgba(56, 205, 62, 1);
     --error: rgba(216, 67, 67, 1);
@@ -45,6 +53,7 @@
     --gray: rgba(138, 138, 137, 1);
     --backdrop:rgba(25, 26, 21, 0.6);
     --border:rgba(25, 26, 21, 0.2);
+    --question: rgba(69, 53, 175, 1);
   }
   html {
     font-size: calc(100vw/1440*10);

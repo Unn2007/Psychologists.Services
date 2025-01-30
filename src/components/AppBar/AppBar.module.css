@@ -1,5 +1,6 @@
 .header {
   color: var(--akcent);
+  
 }
 .container {
   display: flex;
