@@ -1,5 +1,5 @@
 import DocumentTitle from '../../components/DocumentTitle';
-import Icon from '../../components/Icon/Icon.jsx';
+import {Icon} from '../../components/Icon/Icon.jsx';
 import css from './HomePage.module.css';
 // import { useDispatch } from "react-redux";
 // import { logIn } from "../../redux/auth/operations";
@@ -37,7 +37,12 @@ const HomePage = () => {
         </p>
         <button type="button">
           <span>Get started</span>
-          <Icon />
+          <Icon
+            width={16}
+            height={16}
+            href="icon-arrow"
+            className={css.iconArrow}
+          />
         </button>
       </div>
       <div></div>
