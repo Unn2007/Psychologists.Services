@@ -1,0 +1,27 @@
+.userMenu {
+  display: flex;
+  align-items: baseline;
+}
+
+.user {
+  width: clamp(calc(0.22 * 40px), 4rem, 40px);
+  height: clamp(calc(0.22 * 40px), 4rem, 40px);
+  align-self:center;
+  margin-right: clamp(calc(0.22 * 14px), 1.4rem, 14px);
+}
+.userName {
+  font-size: clamp(calc(0.22 * 16px), 1.6rem, 16px);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+  color: var(--main);
+  margin-right: clamp(calc(0.22 * 28px), 2.8rem, 28px);
+}
+
+.button {
+  padding-top: clamp(calc(0.22 * 14px), 1.4rem, 14px);
+  padding-bottom: clamp(calc(0.22 * 14px), 1.4rem, 14px);
+  padding-left: clamp(calc(0.22 * 39px), 3.9rem, 39px);
+  padding-right: clamp(calc(0.22 * 39px), 3.9rem, 39px);
+  border-radius: clamp(calc(0.22 * 30px), 3rem, 30px);
+  border: 1px solid var(--border);
+}

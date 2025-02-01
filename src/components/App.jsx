@@ -9,10 +9,10 @@ const HomePage = lazy(() => import('../pages/HomePage/HomePage.jsx'));
 const PsychologistsPage = lazy(() =>
   import('../pages/PsychologistsPage/PsychologistsPage.jsx')
 );
-const RegisterPage = lazy(() =>
-  import('../pages/RegisterPage/RegisterPage.jsx')
-);
-const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage.jsx'));
+// const RegisterPage = lazy(() =>
+//   import('../pages/RegisterPage/RegisterPage.jsx')
+// );
+// const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage.jsx'));
 const FavoritesPage = lazy(() =>
   import('../pages/FavoritesPage/FavoritesPage.jsx')
 );
@@ -23,7 +23,7 @@ export const App = () => {
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route
+        {/* <Route
           path="/register"
           element={
             <RestrictedRoute
@@ -40,7 +40,7 @@ export const App = () => {
               component={<LoginPage />}
             />
           }
-        />
+        /> */}
         <Route path="/psychologists" element={<PsychologistsPage />}>
           <Route path="detalies" element={<Detalies />} />
         </Route>

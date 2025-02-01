@@ -3,7 +3,7 @@ import { RegisterForm } from '../../components/RegisterForm/RegisterForm';
 
 export default function RegisterPage() {
   return (
-    <div>
+    <div style={{backgroundColor:"black"}}>
       <DocumentTitle>Registration</DocumentTitle>
       <RegisterForm />
     </div>
