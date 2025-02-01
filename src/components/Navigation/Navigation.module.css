@@ -1,7 +1,8 @@
 .nav {
   display: flex;
   column-gap: clamp(calc(0.22*40px),4rem,40px) ;
-  margin-right: clamp(calc(0.22*345px),34.5rem,345px);
+  /* margin-right: clamp(calc(0.22*345px),34.5rem,345px); */
+  margin-right: auto;
 }
 
 .link {

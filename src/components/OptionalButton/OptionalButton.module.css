@@ -1,0 +1,15 @@
+.button {
+  border-radius: clamp(calc(0.22 * 30px), 3rem, 30px);
+  border: 1px solid rgba(25, 26, 21, 0.2);
+  font-size: clamp(calc(0.22 * 16px), 1.6rem, 16px);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+  color: var(--main);
+  background-color: var(--white);
+  cursor: pointer;
+}
+.button.primary {
+  border: none;
+  color: var(--white);
+  background-color: var(--akcent);
+}
