@@ -1,3 +1,7 @@
 .list {
+    margin-bottom:clamp(calc(0.22 * 32px), 3.2rem, 32px) ;
+}
+
+.list:last-child {
     margin-bottom:clamp(calc(0.22 * 64px), 6.4rem, 64px) ;
 }

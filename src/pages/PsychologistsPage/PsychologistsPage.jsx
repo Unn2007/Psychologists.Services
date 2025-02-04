@@ -28,7 +28,8 @@ const PsychologistsPage = () => {
     dispatch(fetchPsychologists());
   }, []);
   return (
-    <>
+    <section className={css.page}>
+    <div className={`container ${css.container}`}>
       <DocumentTitle>Psychologists</DocumentTitle>
       {isLoading && <Loader />}
       <Toaster />
@@ -42,7 +43,8 @@ const PsychologistsPage = () => {
       >
         Load more
       </OptionalButton>
-    </>
+    </div>
+    </section>
   );
 };
 

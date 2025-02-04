@@ -21,7 +21,11 @@ export const fetchPsychologists = createAsyncThunk(
       }));
       const lastKey = psychologists[psychologists.length - 1].id;
 
-      return { psychologists, lastKey };
+      const responseTotal = await axios.get(url,{shallow:true});
+      const total = Object.keys(responseTotal.data).length;
+
+
+      return { psychologists, lastKey,total };
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
