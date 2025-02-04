@@ -16,6 +16,7 @@ const authSlice = createSlice({
   },
   reducers: {
     updateTokens(state, action) {
+      
       state.token = action.payload.idToken;
       state.refreshToken = action.payload.refreshToken;
       state.tokenExpiresAt = action.payload.expiresAt;
@@ -51,8 +52,9 @@ const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
-        state.user.name = action.payload.displayName;
-        state.user.email = action.payload.email;
+       
+        state.user.name = action.payload.users[0].displayName;
+        state.user.email = action.payload.users[0].email;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })

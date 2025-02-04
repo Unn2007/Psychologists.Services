@@ -19,7 +19,7 @@ import modalReducer from "./modals/slice";
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token','refreshToken','tokenExpiresAt'],
 };
 
 export const store = configureStore({
