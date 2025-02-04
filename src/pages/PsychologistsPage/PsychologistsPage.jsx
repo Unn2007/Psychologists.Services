@@ -4,6 +4,7 @@ import { Toaster } from 'react-hot-toast';
 import { Loader } from '../../components/Loader/Loader.jsx';
 import DocumentTitle from '../../components/DocumentTitle';
 import { PsychologistList } from '../../components/PsychologistsList/PsychologistsList.jsx';
+import {FiltersForm} from '../../components/FiltersForm/FiltersForm.jsx';
 import {
   fetchPsychologists,
   fetchNextPage,
@@ -31,8 +32,10 @@ const PsychologistsPage = () => {
     <section className={css.page}>
     <div className={`container ${css.container}`}>
       <DocumentTitle>Psychologists</DocumentTitle>
+      
       {isLoading && <Loader />}
       <Toaster />
+      <FiltersForm/>
 
       <PsychologistList />
       <OptionalButton
