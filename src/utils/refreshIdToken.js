@@ -12,11 +12,11 @@ const refreshIdToken = async (refreshToken) => {
   const response = await axios.post(FIREBASE_REFRESH_URL, params);
   const { id_token, refresh_token, expires_in } = response.data;
 
- 
+ console.log(response.data)
   return {
     idToken: id_token,
     refreshToken: refresh_token,
-    expiresAt: Date.now() + expires_in * 1000, // Час дії токена
+    expiresAt: Date.now() + expires_in * 1000, 
   };
 };
 
