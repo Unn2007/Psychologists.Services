@@ -15,6 +15,7 @@ const psychologistsSlice = createSlice({
   initialState: {
     items: [],
     lastKey:undefined,
+    total:0,
     loading: false,
     error: null,
   },
@@ -23,12 +24,13 @@ const psychologistsSlice = createSlice({
     builder
       .addCase(fetchPsychologists.pending, handlePending)
       .addCase(fetchPsychologists.fulfilled, (state, action) => {
-        const {psychologists, lastKey} = action.payload;
+        const {psychologists, lastKey,total} = action.payload;
         state.lastKey=lastKey;
         state.loading = false;
         state.error = null;
         state.items = psychologists;
-        console.log(action.payload);
+        state.total=total;
+        
       })
       .addCase(fetchPsychologists.rejected, handleRejected)
       .addCase(fetchNextPage.pending, handlePending)

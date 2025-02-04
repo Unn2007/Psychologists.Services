@@ -8,10 +8,10 @@ export const PsychologistList = () => {
   const psychologists = useSelector(selectPsychologists);
 
   return (
-    <ul className={css.list}>
+    <ul >
       {psychologists.map((psychologist) => {
         return (
-          <li key={psychologist.id}>
+          <li key={psychologist.id} className={css.list}>
             <PsychologistCard data={psychologist} />
           </li>
         );
