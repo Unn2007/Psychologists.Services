@@ -24,15 +24,14 @@ const Detalies = lazy(() => import('./Detalies/Detalies.jsx'));
 export const App = () => {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
-  
+ 
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
-  return (
-    isRefreshing ? (
-      <b>Refreshing user...</b>
-    ) : (
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -66,6 +65,6 @@ export const App = () => {
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </Layout>)
+    </Layout>
   );
 };

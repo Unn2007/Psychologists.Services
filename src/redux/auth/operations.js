@@ -2,7 +2,7 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import  {refreshIdToken} from '../../utils/refreshIdToken.js'
 import { signOut } from "firebase/auth";
-import {auth} from '../../utils/firebaseAuth.js'
+import {auth as authInit} from '../../utils/firebaseAuth.js'
 import {updateTokens} from './slice.js';
 
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -52,7 +52,7 @@ export const logIn = createAsyncThunk(
 
 export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
-    await signOut(auth);
+    await signOut(authInit);
     // clearAuthHeader();
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

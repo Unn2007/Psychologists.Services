@@ -1,0 +1,3 @@
+.list {
+    margin-bottom:clamp(calc(0.22 * 64px), 6.4rem, 64px) ;
+}

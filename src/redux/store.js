@@ -10,7 +10,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-// import { contactsReducer } from './contacts/slice';
+import { psychologistsReducer } from './psychologists/slice.js';
 import { authReducer } from './auth/slice';
 import { filtersReducer } from "./filters/slice";
 import modalReducer from "./modals/slice";
@@ -25,7 +25,7 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    // contacts: contactsReducer,
+    psychologists: psychologistsReducer,
     filters: filtersReducer,
     modals: modalReducer,
   },
