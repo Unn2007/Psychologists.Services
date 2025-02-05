@@ -1,6 +1,4 @@
 import { useEffect } from 'react';
-import { Suspense } from 'react';
-import { Outlet} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
 import { Loader } from '../../components/Loader/Loader.jsx';
@@ -36,7 +34,8 @@ const PsychologistsPage = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchPsychologists());
+    if (page===1) {dispatch(fetchPsychologists())}
+    
   }, []);
   return (
     <section className={css.page}>
@@ -57,9 +56,6 @@ const PsychologistsPage = () => {
         Load more
       </OptionalButton>}
     </div>
-    <Suspense fallback={<div>Loading subpage...</div>}>
-        <Outlet />
-      </Suspense>
     </section>
   );
 };

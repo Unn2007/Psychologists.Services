@@ -34,26 +34,13 @@ export const App = () => {
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
-
-        <Route path="/psychologists" element={<PsychologistsPage />}>
-          <Route path=":id/detalies" element={<Detalies />} />
-         
-        </Route>
-        {/* <Route
-          path="/psychologists/:id"
-          element={<PsychologistsPage />}
-        >
-          <Route path="detalies" element={<Detalies />} />
-         
-        </Route> */}
-
+        <Route path="/psychologists" element={<PsychologistsPage />} />
         <Route
           path="/favorites"
           element={
             <PrivateRoute redirectTo="/login" component={<FavoritesPage />} />
           }
         />
-
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Layout>
