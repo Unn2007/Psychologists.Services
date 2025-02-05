@@ -16,10 +16,17 @@ const psychologistsSlice = createSlice({
     items: [],
     lastKey:undefined,
     total:0,
+    page:1,
     loading: false,
     error: null,
   },
+  reducers: {
+    nextPage: (state) => {
+      state.page += 1;
+    },
+   
 
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchPsychologists.pending, handlePending)
@@ -40,7 +47,7 @@ const psychologistsSlice = createSlice({
         state.loading = false;
         state.error = null;
         state.items.push(...psychologists);
-        // console.log(action.payload);
+       
       })
       .addCase(fetchNextPage.rejected, handleRejected);
       
@@ -49,3 +56,5 @@ const psychologistsSlice = createSlice({
 });
 
 export const psychologistsReducer = psychologistsSlice.reducer;
+export const { nextPage } = psychologistsSlice.actions;
+

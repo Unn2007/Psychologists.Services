@@ -15,7 +15,7 @@ export const PsychologistList = () => {
   const filterValue = useSelector(selectFilter);
 
   const filterPsychologists = (list, filter) => {
-    console.log(list,filter);
+   
     switch (filter) {
       case 'Show all':
         return list;
@@ -27,9 +27,9 @@ export const PsychologistList = () => {
       case 'Z to A':
         return sortByLastName([...list], 'desc');
       case 'Less than 10$':
-        return filterAndSortByPrice([...list], true);
+        return sortArray(list, 'price_per_hour', 'desc');
       case 'Greater than 10$':
-        return filterAndSortByPrice([...list], false);
+        return sortArray(list, 'price_per_hour', 'asc');
       case 'Popular':
         return sortArray(list, 'rating', 'desc');
       case 'Not popular':
@@ -43,7 +43,7 @@ export const PsychologistList = () => {
     psychologists,
     filterValue
   );
-  // console.log(filterdListPsychologist);
+ 
   return (
     <ul>
       {filterdListPsychologist.map((psychologist) => {

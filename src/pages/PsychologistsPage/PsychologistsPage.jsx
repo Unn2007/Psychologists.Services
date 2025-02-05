@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import { Suspense } from 'react';
+import { Outlet} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
 import { Loader } from '../../components/Loader/Loader.jsx';
@@ -12,17 +14,25 @@ import {
 import {
   selectIsLoading,
   selectLastKey,
+  selectPage,
+  selectTotal
 } from '../../redux/psychologists/selectors.js';
+import {nextPage} from '../../redux/psychologists/slice.js'
 import OptionalButton from '../../components/OptionalButton/OptionalButton.jsx';
 import css from './PsychologistsPage.module.css';
 const PsychologistsPage = () => {
   const dispatch = useDispatch();
   const lastKey = useSelector(selectLastKey);
   const isLoading = useSelector(selectIsLoading);
+  const total = useSelector(selectTotal);
+  const page = useSelector(selectPage);
+  const isLastPage = page>(total/3);
   const loadMore = async () => {
-    if (!lastKey) return;
+    if (!lastKey||isLastPage) return;
+    
 
     dispatch(fetchNextPage(lastKey));
+    dispatch(nextPage());
   };
 
   useEffect(() => {
@@ -38,15 +48,18 @@ const PsychologistsPage = () => {
       <FiltersForm/>
 
       <PsychologistList />
-      <OptionalButton
+      {!isLastPage&&<OptionalButton
         handleClick={loadMore}
         isPrimaryButton={true}
         externalClass={`${css.loadMoreButton}`}
         type="button"
       >
         Load more
-      </OptionalButton>
+      </OptionalButton>}
     </div>
+    <Suspense fallback={<div>Loading subpage...</div>}>
+        <Outlet />
+      </Suspense>
     </section>
   );
 };
