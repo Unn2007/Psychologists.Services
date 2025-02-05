@@ -2,6 +2,6 @@
 
 
 
-export const selectNameFilter = (state) => state.filters.option;
+export const selectFilter = (state) => state.filters.option;
 
 

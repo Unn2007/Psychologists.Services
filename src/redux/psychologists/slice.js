@@ -40,7 +40,7 @@ const psychologistsSlice = createSlice({
         state.loading = false;
         state.error = null;
         state.items.push(...psychologists);
-        console.log(action.payload);
+        // console.log(action.payload);
       })
       .addCase(fetchNextPage.rejected, handleRejected);
       

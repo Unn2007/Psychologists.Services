@@ -24,13 +24,13 @@ export const FiltersForm = () => {
                 {...register("option")}
                 onChange={(e) => setValue("option", e.target.value)}
             >
-                <option value="option1">Show all</option>
-                <option value="option2">A to Z</option>
-                <option value="option3">Z to A</option>
-                <option value="option4">Less than 10$</option>
-                <option value="option5">Greater than 10$</option>
-                <option value="option6">Popular</option>
-                <option value="option7">Not popular</option>
+                <option value="Show all">Show all</option>
+                <option value="A to Z">A to Z</option>
+                <option value="Z to A">Z to A</option>
+                <option value="Less than 10$">Less than 10$</option>
+                <option value="Greater than 10$">Greater than 10$</option>
+                <option value="Popular">Popular</option>
+                <option value="Not popular">Not popular</option>
             </select>
         </form>
 
