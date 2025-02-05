@@ -5,6 +5,8 @@ export const selectPsychologists = (state) => state.psychologists.items;
 
 export const selectIsLoading = (state) => state.psychologists.loading;
 export const selectLastKey = (state) => state.psychologists.lastKey;
+export const selectPage = (state) => state.psychologists.page;
+export const selectTotal = (state) => state.psychologists.total;
 // export const selectConfirmModal = (state) => state.contacts.isConfirmModal;
 // export const selectEditModal = (state) => state.contacts.isEditModal.id;
 // export const selectEditedContactData = (state) => state.contacts.isEditModal;

@@ -13,7 +13,7 @@ export const fetchPsychologists = createAsyncThunk(
         limitToFirst: 3,
       };
       const response = await axios.get(url, { params });
-      // const response = await axios.get(url);
+     
 
       const psychologists = Object.entries(response.data).map(([id, obj]) => ({
         id,
