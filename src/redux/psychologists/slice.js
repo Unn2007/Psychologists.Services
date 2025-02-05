@@ -32,6 +32,7 @@ const psychologistsSlice = createSlice({
       .addCase(fetchPsychologists.pending, handlePending)
       .addCase(fetchPsychologists.fulfilled, (state, action) => {
         const {psychologists, lastKey,total} = action.payload;
+        state.page = 1;
         state.lastKey=lastKey;
         state.loading = false;
         state.error = null;

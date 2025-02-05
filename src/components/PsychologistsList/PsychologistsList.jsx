@@ -5,7 +5,7 @@ import { PsychologistCard } from '../PsychologistCard/PsychologistCard.jsx';
 import {
   sortByLastName,
   sortArray,
-  filterAndSortByPrice,
+  
 } from '../../utils/sort.js';
 
 import css from './PsychologistsList.module.css';

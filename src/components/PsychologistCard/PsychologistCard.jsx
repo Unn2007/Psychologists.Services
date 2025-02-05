@@ -1,8 +1,6 @@
 import {Link } from 'react-router-dom';
 import css from './PsychologistCard.module.css';
 import { Icon } from '../../components/Icon/Icon.jsx';
-import { Suspense } from 'react';
-import { Outlet} from 'react-router-dom';
 
 export const PsychologistCard = ({data}) => {
   const {avatar_url,experience,about,initial_consultation,license,name,price_per_hour,rating,specialization,reviews}=data;
@@ -37,10 +35,8 @@ export const PsychologistCard = ({data}) => {
         <p className={css.about}>{about}</p>
       </div>
       {/* <Link to={`/psychologists/${data.id}/detalies`}>Read more</Link> */}
-      <Link to={`${data.id}/detalies`}>Read more</Link>
-      {/* <Suspense fallback={<div>Loading subpage...</div>}>
-        <Outlet />
-      </Suspense> */}
+      {/* <Link to={`${data.id}/detalies`}>Read more</Link> */}
+
 
       
     </article>
