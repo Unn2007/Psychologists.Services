@@ -6,11 +6,14 @@ import {Comment} from '../../components/Comment/Comment.jsx'
 import OptionalButton from '../OptionalButton/OptionalButton.jsx'
 import { useDispatch } from "react-redux";
 import {openAppointmentModal} from '../../redux/modals/slice.js'
+import {AppointmentModal} from "../../components/AppointmentModal/AppointmentModal.jsx"
+import {selectAppointmentModalState} from "../../redux/modals/selectors.js"; 
 
 
 export const Detalies = () => {
   const dispatch = useDispatch();
   const openModal = () =>  dispatch(openAppointmentModal());
+  const isAppointmentOpen =useSelector(selectAppointmentModalState);
   const { psychologistId } = useParams();
   const psychologists=useSelector(selectPsychologists);
   const reviews=psychologists.find((psychologist)=>psychologistId===psychologist.id).reviews;
@@ -28,6 +31,7 @@ export const Detalies = () => {
         Make an appointment
 
       </OptionalButton>
+      {isAppointmentOpen && <AppointmentModal />}
     </div>
   );
 };
