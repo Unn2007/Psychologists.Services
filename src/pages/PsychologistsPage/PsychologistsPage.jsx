@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
 import { Loader } from '../../components/Loader/Loader.jsx';
 import DocumentTitle from '../../components/DocumentTitle';
-import { PsychologistList } from '../../components/PsychologistsList/PsychologistsList.jsx';
+import { PsychologistsList } from '../../components/PsychologistsList/PsychologistsList.jsx';
 import {FiltersForm} from '../../components/FiltersForm/FiltersForm.jsx';
 import {
   fetchPsychologists,
@@ -46,7 +46,7 @@ const PsychologistsPage = () => {
       <Toaster />
       <FiltersForm/>
 
-      <PsychologistList />
+      <PsychologistsList />
       {!isLastPage&&<OptionalButton
         handleClick={loadMore}
         isPrimaryButton={true}
