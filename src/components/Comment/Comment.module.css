@@ -1,0 +1,45 @@
+.header {
+    display: flex;
+    column-gap: clamp(calc(0.22 * 12px), 1.2rem, 12px);
+    margin-bottom: clamp(calc(0.22 * 16px), 1.6rem, 16px);
+}
+.logo {
+    padding:clamp(calc(0.22 * 12px), 1.2rem, 12px);
+font-size: clamp(calc(0.22 * 20px), 2rem, 20px);
+font-weight: var(--font-weight-medium);
+line-height: 1;
+color:var(--akcent);
+}
+
+.reviewer {
+    margin-bottom: clamp(calc(0.22 * 4px), 0.4rem, 4px);;
+    font-size: clamp(calc(0.22 * 16px), 1.6rem, 16px);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  color:var(--main);
+}
+.ratingWrapper {
+    display: flex;
+    column-gap:clamp(calc(0.22 * 8px), 0.8rem, 8px);
+}
+
+.star {
+    width:  clamp(calc(0.22 * 16px), 1.6rem, 16px);
+    height:  clamp(calc(0.22 * 16px), 1.6rem, 16px);
+}
+
+.rating {
+    
+font-size: clamp(calc(0.22 * 14px), 1.4rem, 14px);
+font-weight: var(--font-weight-medium);
+line-height: 1.3;
+
+}
+.comment {
+    
+font-size: clamp(calc(0.22 * 16px), 1.6rem, 16px);
+font-weight: var(--font-weight-regular);
+line-height:1.25;
+color:var(--text);
+
+}

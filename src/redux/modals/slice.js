@@ -5,6 +5,7 @@ const modalSlice = createSlice({
   initialState: {
     registerIsOpen: false,
     loginIsOpen: false,
+    appointmentIsOpen:false,
   },
   reducers: {
     openRegisterModal: (state) => {
@@ -19,10 +20,16 @@ const modalSlice = createSlice({
     closeLoginModal: (state) => {
       state.loginIsOpen = false; 
     },
+    openAppointmentModal: (state) => {
+      state.appointmentIsOpen = true;
+    },
+    closeAppointmentModal: (state) => {
+      state.appointmentIsOpen = false; 
+    },
 
   },
 });
 
-export const { openRegisterModal, closeRegisterModal,openLoginModal,closeLoginModal } = modalSlice.actions;
+export const { openRegisterModal, closeRegisterModal,openLoginModal,closeLoginModal,closeAppointmentModal,openAppointmentModal } = modalSlice.actions;
 export default modalSlice.reducer;
    

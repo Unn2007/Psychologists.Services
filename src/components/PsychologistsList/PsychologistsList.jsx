@@ -10,7 +10,7 @@ import {
 
 import css from './PsychologistsList.module.css';
 
-export const PsychologistList = () => {
+export const PsychologistsList = () => {
   const psychologists = useSelector(selectPsychologists);
   const filterValue = useSelector(selectFilter);
 

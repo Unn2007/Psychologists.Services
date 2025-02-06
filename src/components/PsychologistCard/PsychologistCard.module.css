@@ -1,11 +1,10 @@
 .card {
-    display: flex;
-    column-gap: clamp(calc(0.22 * 36px), 3.6rem, 36px);
-    padding:clamp(calc(0.22 * 24px), 2.4rem, 24px); 
-    padding-left:clamp(calc(0.22 * 36px), 3.6rem, 36px) ;
-    border-radius: clamp(calc(0.22 * 24px), 2.4rem, 24px);
-    background-color: var(--white);
-
+  display: flex;
+  column-gap: clamp(calc(0.22 * 36px), 3.6rem, 36px);
+  padding: clamp(calc(0.22 * 24px), 2.4rem, 24px);
+  padding-left: clamp(calc(0.22 * 36px), 3.6rem, 36px);
+  border-radius: clamp(calc(0.22 * 24px), 2.4rem, 24px);
+  background-color: var(--white);
 }
 
 .imageContainer {
@@ -39,75 +38,83 @@
   z-index: 4;
 }
 .headerCard {
-    display: flex;
-    align-items: center;
-    margin-bottom: clamp(calc(0.22 * 8px), 0.8rem, 8px);
-    font-size: clamp(calc(0.22 * 16px), 1.6rem, 16px);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-    color:var(--main);
+  display: flex;
+  align-items: center;
+  margin-bottom: clamp(calc(0.22 * 8px), 0.8rem, 8px);
+  font-size: clamp(calc(0.22 * 16px), 1.6rem, 16px);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  color: var(--main);
 }
-
 
 .header {
-    margin-right: auto;
-    
-    color: var(--text);
-    
-    
+  margin-right: auto;
+
+  color: var(--text);
 }
 .price {
-    color:var(--price);
+  color: var(--price);
 }
 .star {
-    width: clamp(calc(0.22 * 16px), 1.6rem, 16px);
-    height: clamp(calc(0.22 * 16px), 1.6rem, 16px); 
-    margin-right:clamp(calc(0.22 * 4px), 0.4rem, 4px);
+  width: clamp(calc(0.22 * 16px), 1.6rem, 16px);
+  height: clamp(calc(0.22 * 16px), 1.6rem, 16px);
+  margin-right: clamp(calc(0.22 * 4px), 0.4rem, 4px);
 }
 
 .heart {
-    width: clamp(calc(0.22 * 26px), 2.6rem, 26px);
-    height: clamp(calc(0.22 * 26px), 2.6rem, 26px);  
+  width: clamp(calc(0.22 * 26px), 2.6rem, 26px);
+  height: clamp(calc(0.22 * 26px), 2.6rem, 26px);
 }
 .buttonHeart {
-    padding: 0;
-    border:none;
-    background-color: transparent;
+  padding: 0;
+  border: none;
+  background-color: transparent;
 }
-.rating {margin-right:  clamp(calc(0.22 * 32px), 3.2rem, 32px);}
+.rating {
+  margin-right: clamp(calc(0.22 * 32px), 3.2rem, 32px);
+}
 .priceText {
-    margin-right: clamp(calc(0.22 * 28px), 2.8rem, 28px);
+  margin-right: clamp(calc(0.22 * 28px), 2.8rem, 28px);
 }
 
-.name{
-    margin-bottom: clamp(calc(0.22 * 32px), 3.2rem, 32px);
-    font-size:clamp(calc(0.22 * 24px), 2.4rem, 24px) ;
-    line-height: 1;
+.name {
+  margin-bottom: clamp(calc(0.22 * 32px), 3.2rem, 32px);
+  font-size: clamp(calc(0.22 * 24px), 2.4rem, 24px);
+  line-height: 1;
 }
 
-.experience, .specialization {
-    display: flex;
-    justify-content: start;
-    column-gap:clamp(calc(0.22 * 40px), 4rem, 40px) ;
-    margin-bottom: clamp(calc(0.22 * 24px), 2.4rem, 24px) ;;
-    font-size: clamp(calc(0.22 * 16px), 1.6rem, 16px);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-    color:var(--main);
+.experience,
+.specialization {
+  display: flex;
+  justify-content: start;
+  column-gap: clamp(calc(0.22 * 40px), 4rem, 40px);
+  margin-bottom: clamp(calc(0.22 * 24px), 2.4rem, 24px);
+  font-size: clamp(calc(0.22 * 16px), 1.6rem, 16px);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  color: var(--main);
 }
 
 .experienceName {
-    color: var(--text);
-} 
+  color: var(--text);
+}
 
 .about {
-    
-font-size: clamp(calc(0.22 * 16px), 1.6rem, 16px);
-font-weight: var(--font-weight-regular);
-line-height: 1.25;
-text-align: left;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-color:var(--text);
+  margin-bottom: clamp(calc(0.22 * 14px), 1.4rem, 14px);
+  font-size: clamp(calc(0.22 * 16px), 1.6rem, 16px);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.25;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: var(--text);
+}
 
+.link {
+ 
+  font-size: clamp(calc(0.22 * 16px), 1.6rem, 16px);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  color: var(--main);
+  text-decoration: underline;
 }
