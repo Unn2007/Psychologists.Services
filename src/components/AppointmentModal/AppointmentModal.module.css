@@ -1,76 +1,80 @@
 .registerForm {
-    position: relative;
-    width: clamp(calc(0.22 * 600px), 60rem, 600px);
-    padding: clamp(calc(0.22 * 64px), 6.4rem, 64px);
-    font-size: clamp(calc(0.22 * 16px), 1.6rem, 16px);
-    background-color: var(--white);
-    border-radius: clamp(calc(0.22 * 30px), 3rem, 30px);
-    line-height: 1.25;
-    text-align: left;
-  }
-  .formHeader {
-    margin-bottom: clamp(calc(0.22 * 20px), 2.4rem, 20px);
-    font-size: clamp(calc(0.22 * 40px), 4rem, 40px);
-    font-weight: var(----font-weight-medium);
-    line-height: 1.2;
-    text-align: left;
-  }
-  
-  .formText {
-    margin-bottom: clamp(calc(0.22 * 40px), 4rem, 40px);
-    color: var(--text);
-  }
-  
-  .input {
-    display: block;
-    width: 100%;
-    padding-top: clamp(calc(0.22 * 16px), 1.6rem, 16px);
-    padding-bottom: clamp(calc(0.22 * 16px), 1.6rem, 16px);
-    padding-left: clamp(calc(0.22 * 18px), 1.8rem, 18px);
-    color: var(--main);
-    border: none;
-  }
-  
-  .input.notLast {
-    margin-bottom: clamp(calc(0.22 * 18px), 1.8rem, 18px);
-  }
-  .input::placeholder {
-    color: var(--main);
-  }
-  
-  .passwordWrapper {
-    position: relative;
-    margin-bottom: clamp(calc(0.22 * 40px), 4rem, 40px);
-  }
-  
-  .showButton {
-    position: absolute;
-    top: 60%;
-    right: 0;
-    transform: translate(0, -50%);
-    padding: 0;
-    border-color: transparent;
-    background-color: transparent;
-  }
-  
- 
-  
-  .submitButton {
-    display: block;
-    width: 100%;
-    padding-top: clamp(calc(0.22 * 16px), 1.6rem, 16px);
-    padding-bottom: clamp(calc(0.22 * 16px), 1.6rem, 16px);
-  }
-  
-  .closeButton {
-    position: absolute;
-    right: 3.6%;
-    top: 3.5%;
-    width: clamp(calc(0.22 * 32px), 3.2rem, 32px);
-    height: clamp(calc(0.22 * 32px), 3.2rem, 32px);
-    border: none;
-  }
-  .error {
-    color: red;
-  }
-  
+  position: relative;
+  width: clamp(calc(0.22 * 600px), 60rem, 600px);
+  padding: clamp(calc(0.22 * 64px), 6.4rem, 64px);
+  font-size: clamp(calc(0.22 * 16px), 1.6rem, 16px);
+  background-color: var(--white);
+  border-radius: clamp(calc(0.22 * 30px), 3rem, 30px);
+  line-height: 1.25;
+  text-align: left;
+}
+.formHeader {
+  margin-bottom: clamp(calc(0.22 * 20px), 2.4rem, 20px);
+  font-size: clamp(calc(0.22 * 40px), 4rem, 40px);
+  font-weight: var(----font-weight-medium);
+  line-height: 1.2;
+  text-align: left;
+}
+
+.formText {
+  font-size: clamp(calc(0.22 * 16px), 1.6rem, 16px);
+  line-height: 1.25;
+  font-weight: var(--font-weight-regular);
+  margin-bottom: clamp(calc(0.22 * 40px), 4rem, 40px);
+
+  color: var(--text);
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding-top: clamp(calc(0.22 * 16px), 1.6rem, 16px);
+  padding-bottom: clamp(calc(0.22 * 16px), 1.6rem, 16px);
+  padding-left: clamp(calc(0.22 * 18px), 1.8rem, 18px);
+  color: var(--main);
+  border: none;
+}
+
+.input::placeholder {
+  font-size: clamp(calc(0.22 * 16px), 1.6rem, 16px);
+  line-height: 1.25;
+  font-weight: var(--font-weight-regular);
+  color: var(--main);
+}
+
+.inputWrapper {
+  display: flex;
+  column-gap: clamp(calc(0.22 * 8px), 0.8rem, 8px);
+}
+
+.name,
+.email,
+.inputWrapper {
+  margin-bottom: clamp(calc(0.22 * 16px), 1.6rem, 16px);
+}
+
+.comment {
+  height: clamp(calc(0.22 * 116px), 11.6rem, 116px);
+  margin-bottom: clamp(calc(0.22 * 40px), 4rem, 40px);
+  overflow: scroll;
+  resize: none;
+}
+
+.submitButton {
+  display: block;
+  width: 100%;
+  padding-top: clamp(calc(0.22 * 16px), 1.6rem, 16px);
+  padding-bottom: clamp(calc(0.22 * 16px), 1.6rem, 16px);
+}
+
+.closeButton {
+  position: absolute;
+  right: 3.6%;
+  top: 3.5%;
+  width: clamp(calc(0.22 * 32px), 3.2rem, 32px);
+  height: clamp(calc(0.22 * 32px), 3.2rem, 32px);
+  border: none;
+}
+.error {
+  color: red;
+}

@@ -9,6 +9,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Icon } from '../Icon/Icon.jsx';
 import OptionalButton from '../../components/OptionalButton/OptionalButton.jsx';
+import toast from 'react-hot-toast';
 
 const schema = yup.object().shape({
   email: yup
@@ -68,12 +69,13 @@ export const LoginForm = () => {
     )
       .unwrap()
       .then(() => {
-        console.log('login success');
+       toast.success('login success');
         reset();
         dispatch(closeLoginModal())
       })
       .catch(() => {
-        console.log('login error');
+        toast.error('login error');
+        
       });
 
     
