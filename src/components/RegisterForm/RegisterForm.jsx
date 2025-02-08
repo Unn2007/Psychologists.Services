@@ -8,6 +8,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Icon } from '../Icon/Icon.jsx';
 import OptionalButton from '../../components/OptionalButton/OptionalButton.jsx';
+import toast from 'react-hot-toast';
 import css from './RegisterForm.module.css';
 
 const schema = yup.object().shape({
@@ -75,12 +76,12 @@ dispatch(
 )
   .unwrap()
   .then(() => {
-    console.log("login success");
+    toast.success('login success');
     reset();
     dispatch(closeRegisterModal())
   })
   .catch(() => {
-    console.log("login error");
+    toast.error('login error');
   });
 
 
