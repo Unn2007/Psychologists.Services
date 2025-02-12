@@ -13,7 +13,6 @@ export const fetchPsychologists = createAsyncThunk(
         limitToFirst: 3,
       };
       const response = await axios.get(url, { params });
-     
 
       const psychologists = Object.entries(response.data).map(([id, obj]) => ({
         id,
@@ -21,11 +20,10 @@ export const fetchPsychologists = createAsyncThunk(
       }));
       const lastKey = psychologists[psychologists.length - 1].id;
 
-      const responseTotal = await axios.get(url,{shallow:true});
+      const responseTotal = await axios.get(url, { shallow: true });
       const total = Object.keys(responseTotal.data).length;
 
-
-      return { psychologists, lastKey,total };
+      return { psychologists, lastKey, total };
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
@@ -55,6 +53,25 @@ export const fetchNextPage = createAsyncThunk(
       const lastKey = psychologists[psychologists.length - 1]?.id || null;
 
       return { psychologists, lastKey };
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const addAppointmen = createAsyncThunk(
+  'psychologists/fetchAddAppointmen',
+
+  async (appointmenData, thunkAPI) => {
+    try {
+      const url =
+        'https://psychologistsservices-e119b-default-rtdb.europe-west1.firebasedatabase.app/appointmens.json';
+
+      const response = await axios.post(url, { ...appointmenData });
+
+      console.log(response);
+
+      return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }

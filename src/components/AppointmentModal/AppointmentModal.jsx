@@ -2,9 +2,9 @@ import css from './AppointmentModal.module.css';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { logIn } from '../../redux/auth/operations.js';
 import { closeAppointmentModal } from '../../redux/modals/slice.js';
-
+import { selectIsLoggedIn, selectUser } from '../../redux/auth/selectors.js';
+import toast from 'react-hot-toast';
 import Modal from 'react-modal';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -12,6 +12,7 @@ import * as yup from 'yup';
 import { Icon } from '../Icon/Icon.jsx';
 import OptionalButton from '../../components/OptionalButton/OptionalButton.jsx';
 import { PsychologistInfo } from '../PsychologistInfo/PsychologistInfo.jsx';
+import { addAppointmen } from '../../redux/psychologists/operations.js';
 
 const schema = yup.object().shape({
   name: yup
@@ -27,7 +28,7 @@ const schema = yup.object().shape({
     .required('Це поле обов’язкове'),
   phone: yup
     .string()
-    .matches(/^\+380\d{9}$/, 'Формат: +380XXXXXXXXX')
+    .matches(/^\d{9}$/, 'Введіть 9 цифр без коду країни')
     .required('Це поле обов’язкове'),
   time: yup
     .string()
@@ -63,6 +64,15 @@ const customStyles = {
 
 export const AppointmentModal = () => {
   const dispatch = useDispatch();
+  const { psychologistId } = useParams();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const user = useSelector(selectUser);
+  const userData = isLoggedIn
+    ? {
+        name: user?.name || '',
+        email: user?.email || '',
+      }
+    : {};
 
   const {
     register,
@@ -71,26 +81,31 @@ export const AppointmentModal = () => {
     reset,
   } = useForm({
     resolver: yupResolver(schema),
+    defaultValues: { ...userData },
   });
 
   const onSubmit = (values) => {
+    let formattedPhone = values.phone.trim();
+
+    if (!formattedPhone.startsWith('+380')) {
+      formattedPhone = `+380${formattedPhone.replace(/\D/g, '').slice(-9)}`;
+    }
+
     dispatch(
-      logIn({
-        email: values.email,
-        password: values.password,
-        phone: values.phone,
-        time: values.time,
-        comment: values.comment,
+      addAppointmen({
+        ...values,
+        phone: formattedPhone,
+        psychologistId: psychologistId,
       })
     )
       .unwrap()
       .then(() => {
-        console.log('Appointment success');
+        toast.success('Appointment success');
         reset();
         dispatch(closeAppointmentModal());
       })
       .catch(() => {
-        console.log('Appointment error');
+        toast.error('Appointment error');
       });
   };
 

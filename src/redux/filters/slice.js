@@ -1,8 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const filterOptionSlice = createSlice({
-  name: "filters",
-  initialState: {option:""},
+  name: 'filters',
+  initialState: { option: '' },
   reducers: {
     setSelectedOption(state, action) {
       state.option = action.payload;
@@ -12,10 +12,3 @@ const filterOptionSlice = createSlice({
 
 export const { setSelectedOption } = filterOptionSlice.actions;
 export const filtersReducer = filterOptionSlice.reducer;
-   
-
-
-
-
-
- 
