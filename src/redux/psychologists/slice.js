@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchPsychologists, fetchNextPage, addAppointmen } from './operations';
+import {
+  fetchPsychologists,
+  fetchNextPage,
+  addAppointmen,
+  addFavorite,
+  getFavorite,
+} from './operations';
 
 const handlePending = (state) => {
   state.loading = true;
@@ -17,12 +23,24 @@ const psychologistsSlice = createSlice({
     lastKey: undefined,
     total: 0,
     page: 1,
+    favorites: [],
+
     loading: false,
     error: null,
   },
   reducers: {
     nextPage: (state) => {
       state.page += 1;
+    },
+    clearFavorites(state) {
+      state.favorites = [];
+    },
+    pushFavorites(state, action) {
+      state.favorites.push(action.payload);
+    },
+    popFavorites(state, action) {
+      const newList = state.favorites.filter((item) => item !== action.payload);
+      state.favorites = [...newList];
     },
   },
   extraReducers: (builder) => {
@@ -42,9 +60,9 @@ const psychologistsSlice = createSlice({
       .addCase(fetchNextPage.fulfilled, (state, action) => {
         const { psychologists, lastKey } = action.payload;
         state.lastKey = lastKey;
+        state.items.push(...psychologists);
         state.loading = false;
         state.error = null;
-        state.items.push(...psychologists);
       })
       .addCase(fetchNextPage.rejected, handleRejected)
       .addCase(addAppointmen.pending, handlePending)
@@ -52,9 +70,24 @@ const psychologistsSlice = createSlice({
         state.loading = false;
         state.error = null;
       })
-      .addCase(addAppointmen.rejected, handleRejected);
+      .addCase(addAppointmen.rejected, handleRejected)
+      .addCase(addFavorite.pending, handlePending)
+      .addCase(addFavorite.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+      })
+      .addCase(addFavorite.rejected, handleRejected)
+      .addCase(getFavorite.pending, handlePending)
+      .addCase(getFavorite.fulfilled, (state, action) => {
+        console.log(action.payload.favorites);
+        state.favorites = [...action.payload.favorites];
+        state.loading = false;
+        state.error = null;
+      })
+      .addCase(getFavorite.rejected, handleRejected);
   },
 });
 
 export const psychologistsReducer = psychologistsSlice.reducer;
-export const { nextPage } = psychologistsSlice.actions;
+export const { nextPage, clearFavorites, pushFavorites, popFavorites } =
+  psychologistsSlice.actions;
