@@ -69,7 +69,47 @@ export const addAppointmen = createAsyncThunk(
 
       const response = await axios.post(url, { ...appointmenData });
 
-      console.log(response);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const addFavorite = createAsyncThunk(
+  'psychologists/fetchAddFavorite',
+
+  async (authData, thunkAPI) => {
+    try {
+      const url = `https://psychologistsservices-e119b-default-rtdb.europe-west1.firebasedatabase.app/users/${authData.localId}.json`;
+
+      const params = {
+        auth: authData.token,
+      };
+
+      const data = { favorites: authData.favorites };
+
+      const response = await axios.patch(url, data, { params });
+
+      return;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const getFavorite = createAsyncThunk(
+  'psychologists/fetchGetFavorite',
+
+  async (authData, thunkAPI) => {
+    try {
+      const url = `https://psychologistsservices-e119b-default-rtdb.europe-west1.firebasedatabase.app/users/${authData.localId}.json`;
+
+      const params = {
+        auth: authData.token,
+      };
+
+      const response = await axios.get(url, { params });
 
       return response.data;
     } catch (e) {

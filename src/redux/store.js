@@ -12,20 +12,28 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { psychologistsReducer } from './psychologists/slice.js';
 import { authReducer } from './auth/slice';
-import { filtersReducer } from "./filters/slice";
-import modalReducer from "./modals/slice";
-
+import { filtersReducer } from './filters/slice';
+import modalReducer from './modals/slice';
 
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token','refreshToken','tokenExpiresAt'],
+  whitelist: ['token', 'refreshToken', 'tokenExpiresAt'],
+};
+
+const psychologistsPersistConfig = {
+  key: 'psychologists',
+  storage,
+  whitelist: ['favorites'],
 };
 
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    psychologists: psychologistsReducer,
+    psychologists: persistReducer(
+      psychologistsPersistConfig,
+      psychologistsReducer
+    ),
     filters: filtersReducer,
     modals: modalReducer,
   },
@@ -39,8 +47,3 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-
-
- 
-
-

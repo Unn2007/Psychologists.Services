@@ -1,12 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { register, logIn, logOut, refreshUser } from "./operations";
+import { createSlice } from '@reduxjs/toolkit';
+import { register, logIn, logOut, refreshUser } from './operations';
 
 const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState: {
     user: {
       name: null,
       email: null,
+      localId: null,
     },
     token: null,
     isLoggedIn: false,
@@ -16,18 +17,17 @@ const authSlice = createSlice({
   },
   reducers: {
     updateTokens(state, action) {
-      
       state.token = action.payload.idToken;
       state.refreshToken = action.payload.refreshToken;
       state.tokenExpiresAt = action.payload.expiresAt;
     },
-    
   },
   extraReducers: (builder) => {
     builder
       .addCase(register.fulfilled, (state, action) => {
         state.user.name = action.payload.displayName;
         state.user.email = action.payload.email;
+        state.user.localId = action.payload.localId;
         state.token = action.payload.idToken;
         state.refreshToken = action.payload.refreshToken;
         state.tokenExpiresAt = action.payload.expiresIn;
@@ -36,13 +36,14 @@ const authSlice = createSlice({
       .addCase(logIn.fulfilled, (state, action) => {
         state.user.name = action.payload.displayName;
         state.user.email = action.payload.email;
+        state.user.localId = action.payload.localId;
         state.token = action.payload.idToken;
         state.refreshToken = action.payload.refreshToken;
         state.tokenExpiresAt = action.payload.expiresIn;
         state.isLoggedIn = true;
       })
       .addCase(logOut.fulfilled, (state) => {
-        state.user = { name: null, email: null };
+        state.user = { name: null, email: null, localId: null };
         state.token = null;
         state.refreshToken = null;
         state.tokenExpiresAt = null;
@@ -52,9 +53,9 @@ const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
-       
         state.user.name = action.payload.users[0].displayName;
         state.user.email = action.payload.users[0].email;
+        state.user.localId = action.payload.users[0].localId;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
@@ -65,7 +66,4 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
-export const {
-  updateTokens,
-  
-} = authSlice.actions;
+export const { updateTokens } = authSlice.actions;
