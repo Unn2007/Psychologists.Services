@@ -1,6 +1,6 @@
 .nav {
   display: flex;
-  column-gap: clamp(calc(0.22*40px),4rem,40px) ;
+  column-gap: clamp(calc(0.22 * 40px), 4rem, 40px);
   /* margin-right: clamp(calc(0.22*345px),34.5rem,345px); */
   margin-right: auto;
 }
@@ -8,22 +8,21 @@
 .link {
   display: flex;
   flex-direction: column;
-  row-gap: clamp(calc(0.22*4px),0.4rem,4px);
+  row-gap: clamp(calc(0.22 * 4px), 0.4rem, 4px);
   align-items: center;
   justify-content: center;
-  font-size: clamp(calc(0.22*16px),1.6rem,16px) ;
+  font-size: clamp(calc(0.22 * 16px), 1.6rem, 16px);
   line-height: 1.25;
   color: var(--main);
-
 }
 
 .link::after {
-  content:"";
+  content: '';
   display: block;
-  width: clamp(calc(0.22*8px),0.8rem,8px);
-  height: clamp(calc(0.22*8px),0.8rem,8px);
+  width: clamp(calc(0.22 * 8px), 0.8rem, 8px);
+  height: clamp(calc(0.22 * 8px), 0.8rem, 8px);
   border-radius: 50%;
- background-color: transparent;
+  background-color: transparent;
 }
 .link.active::after {
   background-color: var(--akcent);

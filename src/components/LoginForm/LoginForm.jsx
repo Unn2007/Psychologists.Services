@@ -69,16 +69,13 @@ export const LoginForm = () => {
     )
       .unwrap()
       .then(() => {
-       toast.success('login success');
+        toast.success('login success');
         reset();
-        dispatch(closeLoginModal())
+        dispatch(closeLoginModal());
       })
       .catch(() => {
         toast.error('login error');
-        
       });
-
-    
   };
   return (
     <Modal

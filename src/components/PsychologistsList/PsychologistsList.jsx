@@ -1,21 +1,21 @@
 import { useSelector } from 'react-redux';
-import { selectPsychologists,selectFavoritesItems } from '../../redux/psychologists/selectors.js';
+import {
+  selectPsychologists,
+  selectFavoritesItems,
+} from '../../redux/psychologists/selectors.js';
 import { selectFilter } from '../../redux/filters/selectors.js';
 import { PsychologistCard } from '../PsychologistCard/PsychologistCard.jsx';
-import {
-  sortByLastName,
-  sortArray,
-  
-} from '../../utils/sort.js';
+import { sortByLastName, sortArray } from '../../utils/sort.js';
 
 import css from './PsychologistsList.module.css';
 
-export const PsychologistsList = ({isFavorite}) => {
-  const psychologists = (isFavorite)? useSelector(selectFavoritesItems) : useSelector(selectPsychologists);
+export const PsychologistsList = ({ isFavorite }) => {
+  const psychologists = isFavorite
+    ? useSelector(selectFavoritesItems)
+    : useSelector(selectPsychologists);
   const filterValue = useSelector(selectFilter);
 
   const filterPsychologists = (list, filter) => {
-   
     switch (filter) {
       case 'Show all':
         return list;
@@ -43,7 +43,7 @@ export const PsychologistsList = ({isFavorite}) => {
     psychologists,
     filterValue
   );
- 
+
   return (
     <ul>
       {filterdListPsychologist.map((psychologist) => {

@@ -1,6 +1,5 @@
 .header {
   color: var(--akcent);
-  
 }
 .container {
   display: flex;
@@ -8,16 +7,13 @@
   justify-content: start;
   padding-top: 2.4rem;
   padding-bottom: 2.4rem;
-
 }
 .logo {
-  font-size: clamp(calc(0.22*20px),2rem,20px);
-  margin-right: clamp(calc(0.22*130px), 13rem,130px);
+  font-size: clamp(calc(0.22 * 20px), 2rem, 20px);
+  margin-right: clamp(calc(0.22 * 130px), 13rem, 130px);
   font-weight: var(--font-weight-medium);
 }
 
 .secondWord {
   color: var(--main);
 }
-
-

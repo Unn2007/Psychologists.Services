@@ -119,8 +119,8 @@
 
 .question {
   position: absolute;
-  top:35.2%;
-  left:-7.5%;
+  top: 35.2%;
+  left: -7.5%;
   width: clamp(calc(0.22 * 40px), 4rem, 40px);
   height: clamp(calc(0.22 * 40px), 4rem, 40px);
   display: flex;

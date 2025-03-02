@@ -24,8 +24,6 @@
   color: var(--white);
 }
 
-
-
 .option {
   font-size: clamp(calc(0.22 * 16px), 1.6rem, 16px);
   font-weight: var(--font-weight-regular);
@@ -41,9 +39,8 @@
   color: var(--main);
 }
 
-
 .select .option:hover,
 .select .option:focus {
-    background-color: #ffcc00; /* Жовтий колір */
-    color: black;
+  background-color: #ffcc00; /* Жовтий колір */
+  color: black;
 }
