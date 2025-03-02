@@ -6,7 +6,7 @@
 .user {
   width: clamp(calc(0.22 * 40px), 4rem, 40px);
   height: clamp(calc(0.22 * 40px), 4rem, 40px);
-  align-self:center;
+  align-self: center;
   margin-right: clamp(calc(0.22 * 14px), 1.4rem, 14px);
 }
 .userName {

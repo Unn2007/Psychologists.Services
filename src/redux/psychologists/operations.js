@@ -159,7 +159,9 @@ export const fetchFavoritePsychologists = createAsyncThunk(
 
       const fetchedPsychologists = responses
         .map((response, index) =>
-          response && response.data ? { id: missingIds[index], ...response.data } : null
+          response && response.data
+            ? { id: missingIds[index], ...response.data }
+            : null
         )
         .filter(Boolean);
 

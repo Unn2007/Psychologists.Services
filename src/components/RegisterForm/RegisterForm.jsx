@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { register as registerUser } from "../../redux/auth/operations.js";
+import { register as registerUser } from '../../redux/auth/operations.js';
 import { closeRegisterModal } from '../../redux/modals/slice.js';
 import Modal from 'react-modal';
 import { useForm } from 'react-hook-form';
@@ -66,26 +66,22 @@ export const RegisterForm = () => {
   });
 
   const onSubmit = (values) => {
-
-dispatch(
-  registerUser({
-    displayName:values.name,
-    email: values.email,
-    password: values.password,
-  })
-)
-  .unwrap()
-  .then(() => {
-    toast.success('login success');
-    reset();
-    dispatch(closeRegisterModal())
-  })
-  .catch(() => {
-    toast.error('login error');
-  });
-
-
-    
+    dispatch(
+      registerUser({
+        displayName: values.name,
+        email: values.email,
+        password: values.password,
+      })
+    )
+      .unwrap()
+      .then(() => {
+        toast.success('login success');
+        reset();
+        dispatch(closeRegisterModal());
+      })
+      .catch(() => {
+        toast.error('login error');
+      });
   };
   return (
     <Modal
@@ -146,7 +142,6 @@ dispatch(
             type="submit"
             isPrimaryButton={true}
             externalClass={css.submitButton}
-           
           >
             Sign Up
           </OptionalButton>

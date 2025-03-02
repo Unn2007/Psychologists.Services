@@ -1,7 +1,7 @@
 .wrapper {
   display: flex;
   column-gap: clamp(calc(0.22 * 14px), 1.4rem, 14px);
-  margin-bottom: clamp(calc(0.22 * 40px), 40rem, 40px);;
+  margin-bottom: clamp(calc(0.22 * 40px), 40rem, 40px);
 }
 .image {
   display: block;
