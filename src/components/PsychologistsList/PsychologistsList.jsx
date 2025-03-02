@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectPsychologists } from '../../redux/psychologists/selectors.js';
+import { selectPsychologists,selectFavoritesItems } from '../../redux/psychologists/selectors.js';
 import { selectFilter } from '../../redux/filters/selectors.js';
 import { PsychologistCard } from '../PsychologistCard/PsychologistCard.jsx';
 import {
@@ -10,8 +10,8 @@ import {
 
 import css from './PsychologistsList.module.css';
 
-export const PsychologistsList = () => {
-  const psychologists = useSelector(selectPsychologists);
+export const PsychologistsList = ({isFavorite}) => {
+  const psychologists = (isFavorite)? useSelector(selectFavoritesItems) : useSelector(selectPsychologists);
   const filterValue = useSelector(selectFilter);
 
   const filterPsychologists = (list, filter) => {

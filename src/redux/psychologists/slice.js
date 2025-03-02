@@ -5,6 +5,7 @@ import {
   addAppointmen,
   addFavorite,
   getFavorite,
+  fetchFavoritePsychologists,
 } from './operations';
 
 const handlePending = (state) => {
@@ -20,6 +21,7 @@ const psychologistsSlice = createSlice({
   name: 'psychologists',
   initialState: {
     items: [],
+    favoriteItems:[],
     lastKey: undefined,
     total: 0,
     page: 1,
@@ -79,12 +81,19 @@ const psychologistsSlice = createSlice({
       .addCase(addFavorite.rejected, handleRejected)
       .addCase(getFavorite.pending, handlePending)
       .addCase(getFavorite.fulfilled, (state, action) => {
-        console.log(action.payload.favorites);
         state.favorites = [...action.payload.favorites];
         state.loading = false;
         state.error = null;
       })
-      .addCase(getFavorite.rejected, handleRejected);
+      .addCase(getFavorite.rejected, handleRejected)
+      .addCase(fetchFavoritePsychologists.pending, handlePending)
+      .addCase(fetchFavoritePsychologists.fulfilled, (state, action) => {
+        console.log(action.payload)
+        state.favoriteItems = [...action.payload];
+        state.loading = false;
+        state.error = null;
+      })
+      .addCase(fetchFavoritePsychologists.rejected, handleRejected);
   },
 });
 
