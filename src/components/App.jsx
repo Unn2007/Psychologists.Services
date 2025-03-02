@@ -7,7 +7,7 @@ import { PrivateRoute } from './PrivateRoute/PrivateRoute.jsx';
 import NotFoundPage from '../pages/NotFounPage/NotFounPage.jsx';
 import { refreshUser } from '../redux/auth/operations.js';
 import { selectIsRefreshing } from '../redux/auth/selectors.js';
-import {PsychologistsList} from '../components/PsychologistsList/PsychologistsList.jsx'
+import { PsychologistsList } from '../components/PsychologistsList/PsychologistsList.jsx';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage.jsx'));
 const PsychologistsPage = lazy(() =>
@@ -35,19 +35,27 @@ export const App = () => {
     <Layout>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        {/* <Route path="/psychologists" element={<PsychologistsPage />} /> */}
+
         <Route path="/psychologists" element={<PsychologistsPage />}>
-          {/* Для URL: /psychologists */}
           <Route index element={<PsychologistsList />} />
-          {/* Для URL: /psychologists/:psychologistId/details */}
-          <Route path=":psychologistId/details" element={<PsychologistsList />} />
+
+          <Route
+            path=":psychologistId/details"
+            element={<PsychologistsList />}
+          />
         </Route>
         <Route
           path="/favorites"
           element={
             <PrivateRoute redirectTo="/login" component={<FavoritesPage />} />
           }
-        />
+        >
+          <Route index element={<PsychologistsList isFavorites={true} />} />
+          <Route
+            path=":psychologistId/details"
+            element={<PsychologistsList isFavorites={true} />}
+          />
+        </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Layout>

@@ -13,15 +13,22 @@ export const fetchPsychologists = createAsyncThunk(
         limitToFirst: 3,
       };
       const response = await axios.get(url, { params });
+      if (!response.data) {
+        return { psychologists: [], lastKey: null, total: 0 };
+      }
 
       const psychologists = Object.entries(response.data).map(([id, obj]) => ({
         id,
         ...obj,
       }));
-      const lastKey = psychologists[psychologists.length - 1].id;
+      const lastKey = psychologists.length
+        ? psychologists[psychologists.length - 1].id
+        : null;
 
-      const responseTotal = await axios.get(url, { shallow: true });
-      const total = Object.keys(responseTotal.data).length;
+      const responseTotal = await axios.get(`${url}?shallow=true`);
+      const total = responseTotal.data
+        ? Object.keys(responseTotal.data).length
+        : 0;
 
       return { psychologists, lastKey, total };
     } catch (e) {
@@ -114,6 +121,51 @@ export const getFavorite = createAsyncThunk(
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const fetchFavoritePsychologists = createAsyncThunk(
+  'psychologists/fetchFavoritePsychologists',
+
+  async (data, thunkAPI) => {
+    const { favoriteIds, psychologistsState } = data;
+
+    const psychologistsMap = Object.fromEntries(
+      psychologistsState.map((psy) => [psy.id, psy])
+    );
+
+    const existingPsychologists = favoriteIds
+      .map((id) => psychologistsMap[id])
+      .filter(Boolean);
+
+    const missingIds = favoriteIds.filter((id) => !psychologistsMap[id]);
+
+    if (missingIds.length === 0) return existingPsychologists;
+
+    try {
+      const requests = missingIds.map((id) =>
+        axios
+          .get(
+            `https://psychologistsservices-e119b-default-rtdb.europe-west1.firebasedatabase.app/psychologists/${id}.json`
+          )
+          .catch((error) => {
+            console.error(`Error fetching psychologist with id ${id}:`, error);
+            return null;
+          })
+      );
+
+      const responses = await Promise.all(requests);
+
+      const fetchedPsychologists = responses
+        .map((response, index) =>
+          response && response.data ? { id: missingIds[index], ...response.data } : null
+        )
+        .filter(Boolean);
+
+      return [...existingPsychologists, ...fetchedPsychologists];
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
