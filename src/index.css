@@ -54,6 +54,7 @@
   --backdrop: rgba(25, 26, 21, 0.6);
   --border: rgba(25, 26, 21, 0.2);
   --question: rgba(69, 53, 175, 1);
+  --psychologists:rgba(243, 243, 243, 1);
 }
 html {
   font-size: calc(100vw / 1440 * 10);
