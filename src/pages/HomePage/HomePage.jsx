@@ -4,26 +4,8 @@ import { Icon } from '../../components/Icon/Icon.jsx';
 import css from './HomePage.module.css';
 import mainFoto from '../../assets/images/mainFoto.jpg';
 import mainFoto2x from '../../assets/images/mainFoto2x.jpg';
-// import { useDispatch } from "react-redux";
-// import { logIn } from "../../redux/auth/operations";
-// import { createUserWithEmailAndPassword } from "firebase/auth";
-// import { auth } from '../../utils/firebaseAuth.js';
 
 const HomePage = () => {
-  // const dispatch = useDispatch();
-  // dispatch(
-  //   logIn({
-
-  //       email: "unn8000@i.ua",
-  //       password: "asd1234",
-  //     })
-  //   );
-  // createUserWithEmailAndPassword(auth, "unn1000@i.ua", "asd1234")
-  //   .then((user) => {
-  //     console.log(user);
-
-  //   })
-  //   .catch((error) => console.log(error));
   const navigate = useNavigate();
 
   const buttonClick = () => {

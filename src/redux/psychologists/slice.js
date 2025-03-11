@@ -88,7 +88,6 @@ const psychologistsSlice = createSlice({
       .addCase(getFavorite.rejected, handleRejected)
       .addCase(fetchFavoritePsychologists.pending, handlePending)
       .addCase(fetchFavoritePsychologists.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.favoriteItems = [...action.payload];
         state.loading = false;
         state.error = null;
