@@ -2,7 +2,6 @@ import { useEffect, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Layout } from './Layout.jsx';
-// import { RestrictedRoute } from './RestrictedRoute/RestrictedRoute.jsx';
 import { PrivateRoute } from './PrivateRoute/PrivateRoute.jsx';
 import NotFoundPage from '../pages/NotFounPage/NotFounPage.jsx';
 import { refreshUser } from '../redux/auth/operations.js';
